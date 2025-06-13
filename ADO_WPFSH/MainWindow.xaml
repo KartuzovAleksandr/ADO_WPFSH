@@ -95,7 +95,7 @@
             <Button Click="About_Click" ToolTip="О программе">
                 <Image Source="Images\About.png"/>
             </Button>
-            <ComboBox x:Name="ProviderDB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,5,1,0" DropDownClosed="ProviderDB_DropDownClosed"/>
+            <ComboBox x:Name="ProviderDB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,5,1,0" DropDownClosed="ProviderDB_DropDownClosed" ToolTip="Выбор провайдера БД"/>
         </ToolBar>
         <DataGrid x:Name="DataGridEmployee" Grid.Row="2" AutoGenerateColumns="False">
             <DataGrid.ContextMenu>

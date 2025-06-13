@@ -1,0 +1,14 @@
+﻿<Window x:Class="ADO_WPFSH.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADO_WPFSH"
+        mc:Ignorable="d"
+        Style="{StaticResource CustomWindowStyle}"
+        Title="О программе" Height="333" Width="551" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" PreviewKeyDown="Window_PreviewKeyDown" PreviewMouseDown="Window_PreviewMouseDown">
+    <Grid>
+        <Image Height="100" Margin="0,50,0,0" VerticalAlignment="Top" Width="100" HorizontalAlignment="Center" Source="Images\Картузов АВ.jpg"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,159,0,0" TextWrapping="Wrap" Text="Выполнил преподаватель Академии TOP Картузов Александр" VerticalAlignment="Top" Height="100" Width="170" TextAlignment="Center" FontSize="16"/>
+    </Grid>
+</Window>

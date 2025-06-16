@@ -12,6 +12,7 @@ namespace ADO_WPFSH
     {
         AnketaContext? a; // единый контекст данных
         WindowEdit? Edit;
+        EducationWindow? EditEdu;
         About? about;
         Employee? p;
         List<String> providers = ["SQLite", "SqlServer"];
@@ -80,6 +81,11 @@ namespace ADO_WPFSH
             }
             // обновляем список
             RefreshClick(sender, e);
+        }
+        private void EditEducation(object sender, RoutedEventArgs e)
+        {
+            EditEdu = new EducationWindow(a);
+            EditEdu?.Show();
         }
         private void DeleteClick(object sender, RoutedEventArgs e)
         {

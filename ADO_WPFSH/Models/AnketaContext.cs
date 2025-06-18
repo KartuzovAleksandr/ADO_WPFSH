@@ -54,7 +54,7 @@ public partial class AnketaContext : DbContext
     {
         modelBuilder.Entity<Country>(entity =>
         {
-            entity.Property(e => e.id).ValueGeneratedNever();
+            entity.Property(e => e.id).ValueGeneratedOnAdd();
         });
 
         modelBuilder.Entity<Education>(entity =>

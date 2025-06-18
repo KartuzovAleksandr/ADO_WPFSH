@@ -9,8 +9,8 @@
     <Grid>
         <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" IsReadOnly="False" 
                   CanUserAddRows="True" 
-                  CellEditEnding="dataGrid_CellEditEnding" 
-                  PreviewKeyDown="dataGrid_PreviewKeyDown" />
+                  CellEditEnding="DataGrid_CellEditEnding" 
+                  PreviewKeyDown="dataGrid_PreviewKeyDown" BeginningEdit="DataGrid_BeginningEdit" />
         <Button x:Name="SaveChanges" Content="Сохранить" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
                 Click="SaveChanges_Click" Margin="10" Padding="5,5,5,5"/>
     </Grid>

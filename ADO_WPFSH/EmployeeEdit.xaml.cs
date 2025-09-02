@@ -7,7 +7,7 @@ using ADO_WPFSH.Models;
 
 namespace ADO_WPFSH
 {
-    public partial class WindowEdit : Window
+    public partial class EmployeeEdit : Window
     {
         Employee? p;
         AnketaContext? a;
@@ -15,7 +15,7 @@ namespace ADO_WPFSH
         int? CurrentCountry = 0;
         // да, мне никто не мешает добавить аргументы к конструктору
         // и вызвать родительский конструктор окна base()
-        public WindowEdit(AnketaContext a, int t) : base()
+        public EmployeeEdit(AnketaContext a, int t) : base()
         {
             // в начале, т.к. иначе не будет UI-элементов для установки данных текущего сотрудника
             InitializeComponent();

@@ -11,7 +11,8 @@ namespace ADO_WPFSH
     public partial class MainWindow : Window
     {
         AnketaContext? a; // единый контекст данных
-        WindowEdit? Edit;
+        EmployeeEdit? Edit;
+        UniversalEdit? EditEdu;
         About? about;
         Employee? p;
         List<String> providers = ["SQLite", "SQL Server (Windows)", "SQL Server (Docker)"];
@@ -80,6 +81,11 @@ namespace ADO_WPFSH
             }
             // обновляем список
             RefreshClick(sender, e);
+        }
+        private void EditEducation(object sender, RoutedEventArgs e)
+        {
+            EditEdu = new UniversalEdit(a);
+            EditEdu?.Show();
         }
         private void DeleteClick(object sender, RoutedEventArgs e)
         {

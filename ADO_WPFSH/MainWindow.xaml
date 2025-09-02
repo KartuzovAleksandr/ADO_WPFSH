@@ -43,6 +43,10 @@
                 <MenuItem Header="Выход" Click="CloseWindow" InputGestureText="Alt+F4">
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Справочники">
+                <MenuItem Header="Образование" Click="EditEducation">
+                </MenuItem>
+            </MenuItem>
             <MenuItem Header="Темы">
                 <MenuItem Header="Deep Dark" Click="ChangeTheme" Uid="0">
                     <MenuItem.Icon>

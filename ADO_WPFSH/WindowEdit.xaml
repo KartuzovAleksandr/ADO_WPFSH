@@ -67,7 +67,7 @@
                <!-- DisplayMemberPath="Name" SelectedValuePath="id" -->
             </ComboBox>
             <Label Content="Регион"/>
-            <ComboBox x:Name="Region" Width="120" HorizontalAlignment="Left" Margin="5,0,0,5" DropDownOpened="Region_DropDownOpened"/>
+            <ComboBox x:Name="Region" Width="230" HorizontalAlignment="Left" Margin="5,0,0,5" DropDownOpened="Region_DropDownOpened"/>
             <Label Content="Квалификация"/>
             <ListBox x:Name="Qualification" Height="Auto"/>
         </StackPanel>

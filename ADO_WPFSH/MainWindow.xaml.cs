@@ -14,7 +14,7 @@ namespace ADO_WPFSH
         WindowEdit? Edit;
         About? about;
         Employee? p;
-        List<String> providers = ["SQLite", "SqlServer"];
+        List<String> providers = ["SQLite", "SQL Server (Windows)", "SQL Server (Docker)"];
         public MainWindow()
         {
             InitializeComponent();

@@ -40,7 +40,11 @@ public partial class AnketaContext : DbContext
                 optionsBuilder.UseSqlite(ConfigurationManager.ConnectionStrings["Anketa_SQLite"].
                            ConnectionString);
                 break;
-            case "SqlServer":
+            case "SQL Server (Docker)":
+                optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["Anketa_Docker"].
+                                            ConnectionString);
+                break;
+            case "SQL Server (Windows)":
                 optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["Anketa_Express"].
                                             ConnectionString);
                 break;

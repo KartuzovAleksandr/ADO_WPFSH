@@ -84,7 +84,7 @@ namespace ADO_WPFSH
         }
         private void EditEducation(object sender, RoutedEventArgs e)
         {
-            EditEdu = new UniversalEdit(a);
+            EditEdu = new UniversalEdit(a, typeof(Education));
             EditEdu?.Show();
         }
         private void DeleteClick(object sender, RoutedEventArgs e)
@@ -98,7 +98,7 @@ namespace ADO_WPFSH
                 if (emp is not null)
                 {
                     a.Employees.Remove(emp);
-                    a.SaveChanges();
+                    a.SaveChangesAsync();
                     RefreshClick(sender, e); // обновляем список
                 }
                 else

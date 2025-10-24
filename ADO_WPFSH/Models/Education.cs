@@ -17,5 +17,6 @@ public partial class Education
     [Required]
     [StringLength(35)]
     [Unicode(false)]
+    [Display(Name = "Образование")]
     public string Name { get; set; }
 }

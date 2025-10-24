@@ -17,5 +17,6 @@ public partial class Country
     [Required]
     [StringLength(20)]
     [Unicode(false)]
+    [Display(Name="Имя")]
     public string Name { get; set; }
 }

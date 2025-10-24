@@ -28,7 +28,7 @@ public partial class AnketaContext : DbContext
 
     public virtual DbSet<Employee> Employees { get; set; }
 
-    public virtual DbSet<Qualify> Qualifies { get; set; }
+    public virtual DbSet<Qualify> Qualifys { get; set; }
 
     public virtual DbSet<Region> Regions { get; set; }
 

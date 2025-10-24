@@ -26,6 +26,11 @@ namespace ADO_WPFSH
             _entityType = entityType ?? throw new ArgumentNullException(nameof(entityType));
 
             // Получаем DbSet
+            //var dbSetProperty = typeof(AnketaContext).GetProperties()
+            //                .FirstOrDefault(p => p.PropertyType.IsGenericType &&
+            //                       p.PropertyType.GetGenericTypeDefinition() == typeof(DbSet<>) &&
+            //                       p.PropertyType.GetGenericArguments()[0] == entityType);
+
             var dbSetProperty = typeof(AnketaContext).GetProperty(
                 entityType.Name + "s",
                 BindingFlags.Public | BindingFlags.Instance

@@ -47,8 +47,8 @@ namespace ADO_WPFSH
             Region.ItemsSource = null;
             Region.DisplayMemberPath = "Name";
             Region.SelectedValuePath = "Code";
-            // привязка ListBox Qualification к сущности Qualifies
-            Qualification.ItemsSource = a.Qualifies.ToList();
+            // привязка ListBox Qualification к сущности Qualifys
+            Qualification.ItemsSource = a.Qualifys.ToList();
             Qualification.DisplayMemberPath = "Number";
             Qualification.SelectedValuePath = "id";
             // привязка ListBox Education к сущности Educations

@@ -46,6 +46,8 @@
             <MenuItem Header="Справочники">
                 <MenuItem Header="Образование" Click="EditEducation">
                 </MenuItem>
+                <MenuItem Header="Квалификация" Click="EditQualify">
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Темы">
                 <MenuItem Header="Deep Dark" Click="ChangeTheme" Uid="0">

@@ -87,6 +87,12 @@ namespace ADO_WPFSH
             EditEdu = new UniversalEdit(a, typeof(Education));
             EditEdu?.Show();
         }
+        private void EditQualify(object sender, RoutedEventArgs e)
+        {
+            EditEdu = new UniversalEdit(a, typeof(Qualify));
+            EditEdu?.Show();
+        }
+
         private void DeleteClick(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите удалить данные ?",

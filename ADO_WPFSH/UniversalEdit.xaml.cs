@@ -5,10 +5,12 @@ using System.Collections;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace ADO_WPFSH
 {
@@ -53,7 +55,18 @@ namespace ADO_WPFSH
             // Подписываемся на изменение коллекции (добавление/удаление строк)
             ((INotifyCollectionChanged)_items).CollectionChanged += OnCollectionChanged;
         }
+        private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            var property = e.PropertyDescriptor as System.ComponentModel.PropertyDescriptor;
+            var displayAttr = property?.Attributes[typeof(DisplayAttribute)] as DisplayAttribute;
 
+            if (displayAttr != null)
+            {
+                e.Column.Header = displayAttr.Name;
+                if (displayAttr.GetAutoGenerateField() == false)
+                    e.Cancel = true;
+            }
+        }
         private void OnCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
@@ -89,5 +102,55 @@ namespace ADO_WPFSH
                 MessageBox.Show($"Ошибка при сохранении:\n{ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Close();
+            }
+            //if (e.Key == Key.Delete)
+            //{
+            //    if (MessageBox.Show("Вы действительно хотите удалить строку ?",
+            //        "Это может привести к нарушению целостности данных", MessageBoxButton.YesNo, MessageBoxImage.Question,
+            //        MessageBoxResult.Yes) == MessageBoxResult.Yes)
+            //    {
+            //        _items.Remove(DataGrid.SelectedItem);
+            //    }
+            //}
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var entries = _context.ChangeTracker.Entries()
+                .Where(e => e.State != EntityState.Unchanged)
+                .ToList();
+            if (entries.Count > 0)
+            {
+                if (MessageBox.Show("Вы действительно хотите выйти из редактора ?",
+                    "Сохраните данные", MessageBoxButton.YesNo, MessageBoxImage.Question,
+                    MessageBoxResult.Yes) == MessageBoxResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+        private void DataGrid_OnPreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                // Показываем своё подтверждение
+                var result = MessageBox.Show(
+                    "Вы действительно хотите удалить строку?",
+                    "Это может привести к нарушению целостности данных",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+
+                if (result != MessageBoxResult.Yes)
+                {
+                    // Отменяем стандартное удаление
+                    e.Handled = true;
+                }
+            }
+        }
+
     }
 }

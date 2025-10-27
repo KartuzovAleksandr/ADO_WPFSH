@@ -17,6 +17,6 @@ public partial class Qualify
     [Required]
     [StringLength(25)]
     [Unicode(false)]
-    [Display(Name = "Уровень")]
+    [Display(Name = "Квалификация")]
     public string Number { get; set; }
 }
